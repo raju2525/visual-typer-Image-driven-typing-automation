@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Voucher Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        input {
+            display: block;
+            margin: 10px 0;
+            padding: 8px;
+            width: 200px;
+        }
+        button {
+            margin: 5px 5px 15px 0;
+            padding: 8px 15px;
+        }
+        #log {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 400px;
+            min-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Gift Voucher Test</h2>
+    
+    <label for="gvId">GV ID:</label>
+    <input type="text" id="gvId" placeholder="Enter GV ID">
+
+    <label for="gvPin">PIN:</label>
+    <input type="text" id="gvPin" placeholder="Enter PIN">
+
+    <button id="submitBtn">Submit</button>
+    <button id="addBtn">Add Another GV</button>
+
+    <div id="log">
+        <strong>Logs:</strong>
+        <ul id="logList"></ul>
+    </div>
+
+    <script>
+        const submitBtn = document.getElementById("submitBtn");
+        const addBtn = document.getElementById("addBtn");
+        const gvIdInput = document.getElementById("gvId");
+        const gvPinInput = document.getElementById("gvPin");
+        const logList = document.getElementById("logList");
+
+        let vouchers = [];
+
+        // Simulate clicking Submit (Apply)
+        submitBtn.addEventListener("click", () => {
+            const gvId = gvIdInput.value.trim();
+            const gvPin = gvPinInput.value.trim();
+
+            if (gvId && gvPin) {
+                vouchers.push({ id: gvId, pin: gvPin });
+                const li = document.createElement("li");
+                li.textContent = `Submitted GV ID: ${gvId}, PIN: ${gvPin}`;
+                logList.appendChild(li);
+                gvIdInput.disabled = true;
+                gvPinInput.disabled = true;
+            } else {
+                alert("Please enter both GV ID and PIN!");
+            }
+        });
+
+        // Simulate clicking Add Another GV
+        addBtn.addEventListener("click", () => {
+            gvIdInput.disabled = false;
+            gvPinInput.disabled = false;
+            gvIdInput.value = "";
+            gvPinInput.value = "";
+            gvIdInput.focus();
+        });
+    </script>
+</body>
+</html>

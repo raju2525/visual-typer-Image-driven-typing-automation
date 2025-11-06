@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+.env
+
+# Images and secrets (do not commit real vouchers)
+/images/*.png
+/secrets/
+
+# OS
+*.log
+Thumbs.db
+.DS_Store
+
+# Virtual env
+.venv/
