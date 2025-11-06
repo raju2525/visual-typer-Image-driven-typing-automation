@@ -1,4 +1,4 @@
-# Cinepolis Auto GV Enter
+# Python Auto GV Enter
 
 A small Python automation script that detects input fields on-screen using image matching and types gift voucher IDs and PINs for you.
 
